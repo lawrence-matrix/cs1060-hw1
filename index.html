@@ -3,28 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS1060 Stock Tracker Service</title>
+    <title>Stock Market Portal — CS1060 HW1</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <div class="app-wrapper">
         <header>
-            <h1>📈 Real-Time Stock Market Portal</h1>
-            <p>CS1060 Homework 1 Service API Demonstration</p>
+            <h1>📈 Stock Market Portal</h1>
+            <p>CS1060 Homework 1 &nbsp;·&nbsp; Live Data via Twelve Data API</p>
         </header>
 
         <main>
             <section class="control-panel">
                 <div class="input-group">
-                    <label for="ticker-input">Stock Symbol:</label>
-                    <input type="text" id="ticker-input" placeholder="e.g., AAPL, GOOGL, MSFT" value="AAPL">
+                    <label for="ticker-input">Stock Symbol</label>
+                    <input type="text" id="ticker-input" placeholder="e.g., AAPL, MSFT, GOOGL" value="AAPL" autocomplete="off" spellcheck="false">
                 </div>
-                <button id="fetch-trigger-btn">Query Stock Data</button>
+                <button id="fetch-btn">Search</button>
             </section>
 
+            <div class="quick-picks">
+                <span class="quick-label">Quick picks:</span>
+                <button class="chip" data-ticker="AAPL">AAPL</button>
+                <button class="chip" data-ticker="MSFT">MSFT</button>
+                <button class="chip" data-ticker="AMZN">AMZN</button>
+                <button class="chip" data-ticker="GOOGL">GOOGL</button>
+            </div>
+
             <section id="app-container">
-                <div class="placeholder">Enter a stock ticker and click query to fetch live market parameters.</div>
+                <div class="placeholder">Enter a stock ticker above and press Search to fetch live market data.</div>
             </section>
+
+            <p class="api-note">Data provided by <a href="https://twelvedata.com" target="_blank" rel="noopener">Twelve Data</a>. The demo key supports AAPL, MSFT, AMZN, and GOOGL.</p>
         </main>
     </div>
     <script src="app.js"></script>
