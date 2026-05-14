@@ -1,16 +1,33 @@
-# CS1060 Homework 1: Public API Service
+# Harvard Connect Four
 
-### Contributor Information
-* **Full Name:** [YOUR FIRST AND LAST NAME]
-* **GitHub Username:** [YOUR GITHUB USERNAME]
-* **Harvard Email Address:** [YOUR EMAIL]@harvard.edu
+## Contributors
+- **Name:** 
+- **GitHub Username:** 
+- **Harvard Email:** 
+- **Google Drive Link:** 
 
-### Project Deployments
-* **Bolt/Lovable URL:** N/A (Pure Web API Architecture Implementation)
-* **GitHub Repository URL:** github.com[YOUR-USERNAME]/cs1060-[YOUR-USERNAME]-hw1
-* **Netlify Live Deployment URL:** [PASTE YOUR NETLIFY DEPLOYMENT URL HERE]
+## Project Links
+- **GitHub Repository:** 
+- **Netlify Deployment:** 
 
-### Project Diagnostics & Reflection
-* **What you worked on:** Implemented a single-page asynchronous stock market terminal utilizing native asynchronous fetch tracking architecture bound to the public Twelve Data Quote endpoint matrix.
-* **Issues Encountered:** Navigated public stock network API access constraints by configuring a sandbox parameters payload bypassing custom developer authentication handshake workflows.
-* **Time Tracking:** It took approximately [NUMBER] hours to verify execution logic and finalize deployment parameters.
+## Project Description
+This is a web-based Connect Four game with AI opponents of varying difficulty levels. The game features a Harvard-themed design with crimson and gold colors, persistent score tracking using browser localStorage, and three AI difficulty levels implementing different algorithms.
+
+### Features
+- **3 AI Difficulty Levels:**
+  - Easy: Random valid moves
+  - Medium: Defensive play with center column preference
+  - Hard: Minimax algorithm with alpha-beta pruning (5-move lookahead)
+- **Score Persistence:** Win/loss/draw statistics saved in browser localStorage
+- **Harvard Theme:** Crimson and gold color scheme with elegant typography
+- **Responsive Design:** Works on desktop and mobile devices
+- **Smooth Animations:** Piece dropping and winning sequence animations
+
+## Technical Implementation
+The AI uses progressively complex algorithms:
+- **Easy Mode:** Selects random valid columns
+- **Medium Mode:** Checks for immediate wins/blocks, prefers center columns
+- **Hard Mode:** Implements minimax with alpha-beta pruning for optimal play
+
+## Development Process
+- Used Claude Code Max (Sonnet 4). Took mostly 15min of prompting, and 30m of waiting, testing, deploying, etc. Had to be very specific with prompts otherwise Claude would go off the rails.
