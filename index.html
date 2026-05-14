@@ -2,31 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CS1060 Stock Tracker Service</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#A51C30">
+    <title>Harvard Connect Four</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-wrapper">
+    <div class="container">
         <header>
-            <h1>📈 Real-Time Stock Market Portal</h1>
-            <p>CS1060 Homework 1 Service API Demonstration</p>
+            <h1>Connect Four</h1>
         </header>
 
-        <main>
-            <section class="control-panel">
-                <div class="input-group">
-                    <label for="ticker-input">Stock Symbol:</label>
-                    <input type="text" id="ticker-input" placeholder="e.g., AAPL, GOOGL, MSFT" value="AAPL">
+        <div class="game-info">
+            <div class="score-board">
+                <div class="score-item">
+                    <span class="score-label">Wins</span>
+                    <span id="wins" class="score-value">0</span>
                 </div>
-                <button id="fetch-trigger-btn">Query Stock Data</button>
-            </section>
+                <div class="score-item">
+                    <span class="score-label">Losses</span>
+                    <span id="losses" class="score-value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">Draws</span>
+                    <span id="draws" class="score-value">0</span>
+                </div>
+            </div>
 
-            <section id="app-container">
-                <div class="placeholder">Enter a stock ticker and click query to fetch live market parameters.</div>
-            </section>
-        </main>
+            <div class="controls">
+                <select id="difficulty" class="difficulty-select">
+                    <option value="easy">Easy AI</option>
+                    <option value="medium" selected>Medium AI</option>
+                    <option value="hard">Hard AI</option>
+                </select>
+                <button id="newGame" class="btn-primary">New Game</button>
+                <button id="resetScores" class="btn-secondary">Reset Scores</button>
+            </div>
+        </div>
+
+        <div class="game-status" id="gameStatus">Your turn</div>
+
+        <div class="board-container">
+            <div id="board" class="board"></div>
+        </div>
+
+        <footer>
+            <p>© 2025 Harvard Connect Four | CS1060</p>
+        </footer>
     </div>
-    <script src="app.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
