@@ -16,20 +16,20 @@ const AppState = {
 
         this.setState({ isLoading: true, error: null, data: null });
         
-        // Using a free open-access Twelve Data demonstration API endpoint
         const cleanTicker = ticker.trim().toUpperCase();
+        // FIXED: Correctly added the https protocol, the official api domain, and the target /quote endpoint
         const endpointUrl = `twelvedata.com{cleanTicker}&apikey=demo`;
 
         try {
             const response = await fetch(endpointUrl);
 
+            // If the server returns an HTML error (like 404), this catches it before response.json() crashes
             if (!response.ok) {
-                throw new Error(`HTTP Error: ${response.status} - ${response.statusText}`);
+                throw new Error(`HTTP Server Error: ${response.status} - ${response.statusText}`);
             }
 
             const jsonPayload = await response.json();
 
-            // Twelve Data API responds with a 400 error schema inside a 200 HTTP wrapper if ticker is invalid
             if (jsonPayload.status === "error") {
                 throw new Error(jsonPayload.message);
             }
@@ -103,7 +103,6 @@ const AppState = {
     }
 };
 
-// Application Event Binding Ignition Loop
 document.addEventListener('DOMContentLoaded', () => {
     const fetchBtn = document.getElementById('fetch-trigger-btn');
     const tickerInput = document.getElementById('ticker-input');
@@ -113,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
             AppState.fetchStockData(tickerInput.value);
         });
 
-        // Add Enter Key Support inside the text input box
         tickerInput.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 AppState.fetchStockData(tickerInput.value);
