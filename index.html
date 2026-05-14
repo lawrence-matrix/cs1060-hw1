@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS1060 Stock Tracker Service</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <header>
+            <h1>📈 Real-Time Stock Market Portal</h1>
+            <p>CS1060 Homework 1 Service API Demonstration</p>
+        </header>
+
+        <main>
+            <section class="control-panel">
+                <div class="input-group">
+                    <label for="ticker-input">Stock Symbol:</label>
+                    <input type="text" id="ticker-input" placeholder="e.g., AAPL, GOOGL, MSFT" value="AAPL">
+                </div>
+                <button id="fetch-trigger-btn">Query Stock Data</button>
+            </section>
+
+            <section id="app-container">
+                <div class="placeholder">Enter a stock ticker and click query to fetch live market parameters.</div>
+            </section>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
