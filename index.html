@@ -2,42 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Market Portal — CS1060 HW1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#A51C30">
+    <title>Harvard Connect Four</title>
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
-    <div class="app-wrapper">
+    <div class="container">
         <header>
-            <h1>📈 Stock Market Portal</h1>
-            <p>CS1060 Homework 1 &nbsp;·&nbsp; Live Data via Twelve Data API</p>
+            <h1>Connect Four</h1>
         </header>
 
-        <main>
-            <section class="control-panel">
-                <div class="input-group">
-                    <label for="ticker-input">Stock Symbol</label>
-                    <input type="text" id="ticker-input" placeholder="e.g., AAPL, MSFT, GOOGL" value="AAPL" autocomplete="off" spellcheck="false">
+        <div class="game-info">
+            <div class="score-board">
+                <div class="score-item">
+                    <span class="score-label">Wins</span>
+                    <span id="wins" class="score-value">0</span>
                 </div>
-                <button id="fetch-btn">Search</button>
-            </section>
-
-            <div class="quick-picks">
-                <span class="quick-label">Quick picks:</span>
-                <button class="chip" data-ticker="AAPL">AAPL</button>
-                <button class="chip" data-ticker="MSFT">MSFT</button>
-                <button class="chip" data-ticker="AMZN">AMZN</button>
-                <button class="chip" data-ticker="GOOGL">GOOGL</button>
+                <div class="score-item">
+                    <span class="score-label">Losses</span>
+                    <span id="losses" class="score-value">0</span>
+                </div>
+                <div class="score-item">
+                    <span class="score-label">Draws</span>
+                    <span id="draws" class="score-value">0</span>
+                </div>
             </div>
 
-            <section id="app-container">
-                <div class="placeholder">Enter a stock ticker above and press Search to fetch live market data.</div>
-            </section>
+            <div class="controls">
+                <select id="difficulty" class="difficulty-select">
+                    <option value="easy">Easy AI</option>
+                    <option value="medium" selected>Medium AI</option>
+                    <option value="hard">Hard AI</option>
+                </select>
+                <button id="newGame" class="btn-primary">New Game</button>
+                <button id="resetScores" class="btn-secondary">Reset Scores</button>
+            </div>
+        </div>
 
-            <p class="api-note">Data provided by <a href="https://twelvedata.com" target="_blank" rel="noopener">Twelve Data</a>. The demo key supports AAPL, MSFT, AMZN, and GOOGL.</p>
-        </main>
+        <div class="game-status" id="gameStatus">Your turn</div>
+
+        <div class="board-container">
+            <div id="board" class="board"></div>
+        </div>
+
+        <footer>
+            <p>© 2025 Harvard Connect Four | CS1060</p>
+        </footer>
     </div>
-    <script src="app.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
